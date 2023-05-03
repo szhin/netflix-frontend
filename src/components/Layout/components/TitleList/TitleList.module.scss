@@ -1,0 +1,43 @@
+.inner {
+    height: var(--height-header);
+    width: 100%;
+    padding: 0 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-weight: 200;
+    font-size: 2rem;
+}
+span {
+    font-size: 13px;
+    margin-left: 1rem;
+}
+@media only screen and (min-width: 1250px) {
+    .title {
+        font-weight: 200;
+        font-size: 3rem;
+    }
+    .span-title-list {
+        font-size: 14px;
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    .span-title-list {
+        display: none;
+    }
+}
+@media only screen and (max-width: 840px) {
+    .right {
+        display: none;
+    }
+}

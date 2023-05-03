@@ -1,0 +1,196 @@
+// @import '~bootstrap/scss/bootstrap';
+
+.wrapper {
+    margin-bottom: 5rem;
+}
+.inner {
+    position: relative;
+}
+.header {
+    display: flex;
+    align-items: center;
+    height: var(--height-title-list);
+    max-width: 70%;
+    user-select: none;
+    cursor: pointer;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+@media only screen and (max-width: 1000px) {
+    .title {
+        font-size: 1.6rem;
+    }
+}
+
+// See all
+.seeAllAndIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.see-all {
+    position: absolute;
+    left: 0;
+    color: #54b9c5;
+    font-size: 1.6rem;
+    line-height: 0.8vw;
+    min-width: 9rem;
+    margin-left: 1.3rem;
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.angle-right {
+    color: #54b9c5;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    margin-left: 0.7rem;
+    text-transform: none;
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.header:hover .see-all {
+    color: #54b9c5;
+    transition: all 0.5s;
+    opacity: 1;
+}
+
+.header:hover .angle-right {
+    transform: translateX(6rem);
+    transition: all 0.5s;
+}
+.inner:hover .angle-right {
+    opacity: 1;
+}
+
+// List
+
+.listAndIcon {
+    display: flex;
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    user-select: none;
+    transition: 0.3s all;
+}
+
+.background-icon-pre,
+.background-icon-next {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsla(0, 0%, 8%, 0.5);
+    height: 90%;
+    width: 6rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.background-icon-next:hover,
+.background-icon-pre:hover {
+    background-color: #141414a1;
+}
+.background-icon-next {
+    right: -6rem;
+}
+.background-icon-pre {
+    left: -6rem;
+}
+.next,
+.previous {
+    color: #fff;
+    font-size: 4rem;
+    top: var(--height-image-list);
+    transition: all 0.3s;
+    opacity: 0;
+    z-index: 1;
+}
+
+.inner:hover .next,
+.inner:hover .previous {
+    opacity: 1;
+}
+
+.background-icon-next:hover .next,
+.background-icon-pre:hover .previous {
+    font-size: 5rem;
+}
+
+.list {
+    overflow-x: hidden;
+    width: 100%;
+    display: flex;
+    scroll-behavior: smooth;
+    user-select: none;
+    transition: 0.3s all;
+}
+
+.grid-row {
+    scroll-behavior: smooth;
+    transition: 0.3s all;
+}
+
+.grid-col {
+    box-sizing: border-box;
+    padding: 0 2.2rem;
+}
+
+.clickedNext {
+    transform: translate3d(-99.666667%, 0px, 0px);
+}
+
+@media screen and (min-width: 1400px) {
+    .grid-col:nth-child(6n + 1) {
+        padding-left: 0;
+    }
+    .grid-col:nth-child(6n + 6) {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .grid-col:nth-child(4n + 1) {
+        padding-left: 0;
+    }
+    .grid-col:nth-child(4n + 4) {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .grid-col:nth-child(3n + 1) {
+        padding-left: 0;
+    }
+    .grid-col:nth-child(3n + 3) {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .grid-col:nth-child(2n + 1) {
+        padding-left: 0;
+    }
+    .grid-col:nth-child(2n + 2) {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .grid-col:nth-child(2n + 1) {
+        padding: 0 2.2rem;
+    }
+}

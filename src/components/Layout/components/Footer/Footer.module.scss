@@ -1,0 +1,63 @@
+.footer {
+    padding: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin-top: 2rem;
+    color: grey;
+    max-width: 98rem;
+}
+// Social Link
+.icon {
+    color: #fff;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.social-links {
+    margin-left: -1rem;
+    margin-bottom: 2rem;
+}
+.social-link {
+    margin: 1.3rem;
+}
+
+//Ul li
+.footer-links {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.item {
+    display: flex;
+    flex-basis: calc(100% / 4);
+    margin-bottom: 1.6rem;
+}
+.link {
+    color: grey !important;
+    font-size: 1.3rem;
+    font-weight: 200;
+}
+
+// inc and button
+.inc {
+    color: grey !important;
+    font-size: 1.1rem;
+    font-weight: 200;
+}
+
+.button {
+    font-size: 13px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: transparent;
+    border: 1px solid grey;
+    color: grey;
+}

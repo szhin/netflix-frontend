@@ -1,0 +1,15 @@
+.title {
+    position: fixed;
+    top: var(--height-header);
+    height: var(--height-header);
+    z-index: 9;
+    background-color: transparent;
+    width: 100%;
+    transition: 0.2s ease-in;
+}
+
+.title-bg {
+    background-color: var(--primary);
+    top: 0;
+    z-index: 11;
+}

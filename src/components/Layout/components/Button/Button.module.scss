@@ -1,0 +1,32 @@
+.button,
+.button-more {
+    font-family: Netflix Sans, sans-serif;
+    margin: 0 12.6px 12.6px 0;
+    padding: 10.08px 30.24px 10.08px 25.2px;
+    font-size: 2rem;
+    font-weight: 300;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.button-more {
+    background-color: #6d6d6eb3;
+    color: var(--white);
+    &:hover {
+        background-color: rgba(109, 109, 110, 0.4);
+    }
+}
+
+.button {
+    background-color: var(--white);
+    color: var(--primary);
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.75);
+    }
+}
+
+.icon {
+    margin-right: 1rem;
+    font-size: 3rem;
+}

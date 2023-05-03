@@ -1,0 +1,28 @@
+const genresMovies = [
+    'Action',
+    'Anime',
+    'Asian',
+    'Award-Winning',
+    'Children & Family',
+    'Classics',
+    'Comedies',
+    'Crime',
+    'Documentaries',
+    'Dramas',
+    'Fantasy',
+    'Hollywood',
+    'Horror',
+    'Independent',
+    'International',
+    'International Womens Day',
+    'Music & Musicals',
+    'Romance',
+    'Sci-Fi',
+    'Shorts',
+    'Sports',
+    'Stand-Up Comedy',
+    'Thriller',
+    'Vietnamese Movies',
+];
+
+export default genresMovies;

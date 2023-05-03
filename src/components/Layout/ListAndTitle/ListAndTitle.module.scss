@@ -1,0 +1,10 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    margin-top: calc(var(--height-header) * 1.8);
+    padding: var(--padding);
+}

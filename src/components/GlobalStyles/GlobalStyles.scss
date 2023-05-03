@@ -1,0 +1,136 @@
+@import 'normalize.css';
+
+:root {
+    --width-100: 100vw !important;
+    --primary: #141414 !important;
+    --text-color: #e5e5e5 !important;
+    --height-header: 6.8rem !important;
+    --white: #fff !important;
+    --padding-number: 6rem !important;
+    --padding: 0 var(--padding-number) !important;
+    --height-title-list: 4rem !important;
+    --width-image-title-list: 20rem !important;
+    --height-image-title-list: 30rem !important;
+    --padding-image-title-list: calc(
+        (100vw - 2 * var(--padding-number) - 6 * var(--width-image-title-list)) /
+            12
+    ) !important;
+    --padding-image-title-list-zero: calc(
+        var(--padding-image-title-list) * 12 / 8
+    );
+    --height-image-list: 30rem !important;
+    --width-image-list: 18.6rem !important;
+    --number-image: 7 !important;
+    --margin-right-image: calc(
+        (
+                var(--width-100) - var(--width-image-list) * var(--number-image) -
+                    var(--padding-number) * 2
+            ) / (var(--number-image) - 1)
+    ) !important;
+}
+
+// @media (max-width: 768px) {
+//     :root {
+//         --font-size: 14px;
+//         --primary-color: #cc6600;
+//     }
+// }
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    letter-spacing: 0px !important;
+}
+
+html {
+    font-size: 62.5%;
+    font-weight: 200 !important;
+}
+
+body {
+    width: 100%;
+    font-family: Netflix Sans, sans-serif !important;
+    font-size: 1.6rem !important;
+    line-height: 1.5 !important;
+    text-rendering: optimizeSpeed;
+    font-weight: 200 !important;
+    color: var(--text-color) !important;
+    background-color: var(--primary) !important;
+    overflow-x: hidden !important;
+}
+
+button,
+input,
+[tabindex] {
+    border: none;
+    outline: none;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+// Fonts embeded
+@font-face {
+    font-family: Netflix Sans;
+    src: url('/assets/fonts/NetflixSans_W_Bd.woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: Netflix Sans;
+    src: url('/assets/fonts/NetflixSans_W_Md.woff2');
+    font-weight: 300;
+}
+@font-face {
+    font-family: Netflix Sans;
+    src: url('/assets/fonts/NetflixSans_W_Rg.woff2');
+    font-weight: 200;
+}
+@font-face {
+    font-family: Netflix Sans;
+    src: url('/assets/fonts/nf-icon-v1-93.woff');
+    font-weight: 500;
+}
+
+//
+
+.content {
+    padding: var(--padding);
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-height: 600px) {
+    .content {
+        margin-top: 0;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-height: 768px) {
+    .content {
+        margin-top: calc(
+            (var(--height-image-list) + var(--height-title-list)) * (-0.5)
+        );
+    }
+}
+
+@media only screen and (min-height: 900px) {
+    .content {
+        margin-top: calc(
+            (var(--height-image-list) + var(--height-title-list)) * (-1)
+        );
+    }
+}
+
+// .content {
+//     padding: var(--padding);
+//     margin-top: calc(
+//         (var(--height-image-list) + var(--height-title-list)) * (-1)
+//     );
+// }
