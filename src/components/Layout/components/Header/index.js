@@ -71,7 +71,7 @@ function Header({ children }) {
     /////////////////////// BACK END //////////////////////
     const [logoUserPath, setLogoUserPath] = useState(logoUser);
     const fetchAPI = () => {
-        fetch('http://localhost:3001/YourAccount/data', {
+        fetch('https://netflix-backend-3swq.onrender.com/YourAccount/data', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
