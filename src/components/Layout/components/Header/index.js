@@ -250,9 +250,8 @@ function Header({ children }) {
                             <div className={cx('user')}>
                                 <Image
                                     src={
-                                        process.env.PUBLIC_URL + logoUserPath ||
-                                        process.env.PUBLIC_URL +
-                                            'uploads/user-default-img.png'
+                                        `https://netflix-backend-3swq.onrender.com/${logoUserPath}` ||
+                                        `https://netflix-backend-3swq.onrender.com/images/user-default-img.png`
                                     }
                                     alt="Logo user"
                                     className={cx('logo-user')}
