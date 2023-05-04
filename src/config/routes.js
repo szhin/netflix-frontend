@@ -6,9 +6,9 @@ const routes = {
     latest: '/latest',
     myList: '/my-list',
     browserByLanguge: '/original-audio',
-    login: 'http://localhost:3001/YourAccount/login',
-    register: 'http://localhost:3001/YourAccount/register',
-    infoAccount: 'http://localhost:3001/YourAccount',
+    login: 'https://netflix-backend-3swq.onrender.com/YourAccount/login',
+    register: 'https://netflix-backend-3swq.onrender.com/YourAccount/register',
+    infoAccount: 'https://netflix-backend-3swq.onrender.com/YourAccount/',
 };
 
 export default routes;

@@ -69,7 +69,9 @@ function Header({ children }) {
     };
 
     /////////////////////// BACK END //////////////////////
-    const [logoUserPath, setLogoUserPath] = useState(logoUser);
+    const [account, setAccount] = useState({
+        image: 'images/user-default-img.png',
+    });
     const fetchAPI = () => {
         fetch('https://netflix-backend-3swq.onrender.com/YourAccount/data', {
             method: 'GET',
@@ -80,13 +82,15 @@ function Header({ children }) {
         })
             .then((response) => response.json())
             .then((data) => {
-                setLogoUserPath(data.image || 'uploads/user-default-img.png');
+                console.log(data);
+                setAccount(data);
             })
             .catch((error) => console.error(error));
     };
     useEffect(() => {
         fetchAPI();
-    }, []);
+        console.log(account);
+    }, [account]);
     return (
         <header className={cx(color ? classScroll : classHeader)}>
             <div className={cx('inner')}>
@@ -249,10 +253,16 @@ function Header({ children }) {
                         >
                             <div className={cx('user')}>
                                 <Image
-                                    src={
-                                        `https://netflix-backend-3swq.onrender.com/${logoUserPath}` ||
-                                        `https://netflix-backend-3swq.onrender.com/images/user-default-img.png`
-                                    }
+                                    // src={
+                                    //     process.env.PUBLIC_URL + logoUserPath ||
+                                    //     process.env.PUBLIC_URL +
+                                    //         'uploads/user-default-img.png'
+                                    // }
+                                    src={`https://netflix-backend-3swq.onrender.com/${account.image}`}
+                                    // src={
+                                    //     `https://netflix-backend-3swq.onrender.com/${logoUserPath}` ||
+                                    //     `https://netflix-backend-3swq.onrender.com/images/user-default-img.png`
+                                    // }
                                     alt="Logo user"
                                     className={cx('logo-user')}
                                 />
