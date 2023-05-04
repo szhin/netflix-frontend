@@ -259,8 +259,9 @@ function Header({ children }) {
                                     //         'uploads/user-default-img.png'
                                     // }
                                     src={
-                                        `https://netflix-backend-3swq.onrender.com/${account.image}` ||
-                                        'https://netflix-backend-3swq.onrender.com/images/user-default-img.png'
+                                        account.image === undefined
+                                            ? 'https://netflix-backend-3swq.onrender.com/images/user-default-img.png'
+                                            : `https://netflix-backend-3swq.onrender.com/${account.image}`
                                     }
                                     // src={
                                     //     `https://netflix-backend-3swq.onrender.com/${logoUserPath}` ||
