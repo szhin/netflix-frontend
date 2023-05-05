@@ -106,7 +106,7 @@ function Header({ children }) {
     useEffect(() => {
         fetchAPI();
         console.log(account.image);
-    }, [account]);
+    }, [account.image]);
     return (
         <header className={cx(color ? classScroll : classHeader)}>
             <div className={cx('inner')}>
