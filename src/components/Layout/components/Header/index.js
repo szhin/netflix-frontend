@@ -70,10 +70,7 @@ function Header({ children }) {
     const [account, setAccount] = useState({
         image: 'images/user-default-img.png',
     });
-    const cspMetaTag = document.createElement('meta');
-    cspMetaTag.setAttribute('http-equiv', 'Content-Security-Policy');
-    cspMetaTag.setAttribute('content', "connect-src 'self';");
-    document.querySelector('head').appendChild(cspMetaTag);
+    
     const fetchAPI = () => {
         fetch('https://netflix-backend-3swq.onrender.com/YourAccount/data', {
             // fetch('http://localhost:3001/YourAccount/data', {
