@@ -70,9 +70,9 @@ function Header({ children }) {
     const [account, setAccount] = useState({
         image: 'images/user-default-img.png',
     });
-    
+
     const fetchAPI = () => {
-        fetch('https://netflix-backend-3swq.onrender.com/YourAccount/data', {
+        fetch('https://shin-backend.onrender.com/YourAccount/data', {
             // fetch('http://localhost:3001/YourAccount/data', {
             method: 'GET',
             headers: {
@@ -87,7 +87,7 @@ function Header({ children }) {
             .catch((error) => console.error(error));
     };
     const logOut = () => {
-        fetch('https://netflix-backend-3swq.onrender.com/YourAccount/logout', {
+        fetch('https://shin-backend.onrender.com/YourAccount/logout', {
             // fetch('http://localhost:3001/YourAccount/logout', {
             method: 'POST',
             headers: {
@@ -263,8 +263,8 @@ function Header({ children }) {
                                 <Image
                                     src={
                                         account.image === undefined
-                                            ? 'https://netflix-backend-3swq.onrender.com/images/user-default-img.png'
-                                            : `https://netflix-backend-3swq.onrender.com/${account.image}`
+                                            ? 'https://shin-backend.onrender.com/images/user-default-img.png'
+                                            : `https://shin-backend.onrender.com/${account.image}`
                                     }
                                     alt="Logo user"
                                     className={cx('logo-user')}
