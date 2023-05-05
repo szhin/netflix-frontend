@@ -6,7 +6,7 @@ import TippyNotification from './TippyNotification';
 
 import routesConfig from '../../../../config/routes';
 import Image from '../Image';
-import logo from '../../../../assets/images/logo.png';
+import logo from '../../../../assets/images/logo-website.png';
 import { TitleNavbar } from './TitleNavbar';
 
 import {
