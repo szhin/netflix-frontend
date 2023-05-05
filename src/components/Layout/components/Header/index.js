@@ -7,15 +7,13 @@ import TippyNotification from './TippyNotification';
 import routesConfig from '../../../../config/routes';
 import Image from '../Image';
 import logo from '../../../../assets/images/logo.png';
-import logoUser from '../../../../assets/images/user-default-img.png';
 import { TitleNavbar } from './TitleNavbar';
 
 import {
     faBars,
     faCaretDown,
-    faCircleQuestion,
-    faMoneyBillTransfer,
-    faPencil,
+    faRegistered,
+    faRightToBracket,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -74,6 +72,7 @@ function Header({ children }) {
     });
     const fetchAPI = () => {
         fetch('https://netflix-backend-3swq.onrender.com/YourAccount/data', {
+        // fetch('http://localhost:3001/YourAccount/data', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,14 +81,29 @@ function Header({ children }) {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 setAccount(data);
             })
             .catch((error) => console.error(error));
     };
+    const logOut = () => {
+        fetch('https://netflix-backend-3swq.onrender.com/YourAccount/logout', {
+        // fetch('http://localhost:3001/YourAccount/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        })
+            .then(() => {
+                setAccount({
+                    image: 'images/user-default-img.png',
+                });
+            })
+            .catch((error) => console.error(error));
+    };
+
     useEffect(() => {
         fetchAPI();
-        console.log(account);
     }, []);
     return (
         <header className={cx(color ? classScroll : classHeader)}>
@@ -128,6 +142,7 @@ function Header({ children }) {
                                 onClick={() => setShowSearch(false)}
                             />
                             <input
+                                className="placeholder-input"
                                 value={searchValue}
                                 type="text"
                                 placeholder="Titles, people, genres"
@@ -199,7 +214,9 @@ function Header({ children }) {
                                 >
                                     <div className={cx('all-options')}>
                                         <div className={cx('account-option')}>
-                                            <FontAwesomeIcon icon={faPencil} />
+                                            <FontAwesomeIcon
+                                                icon={faRightToBracket}
+                                            />
                                             <Link
                                                 to={routesConfig.login}
                                                 className={cx('name-option')}
@@ -209,7 +226,7 @@ function Header({ children }) {
                                         </div>
                                         <div className={cx('account-option')}>
                                             <FontAwesomeIcon
-                                                icon={faMoneyBillTransfer}
+                                                icon={faRegistered}
                                             />
                                             <Link
                                                 to={routesConfig.register}
@@ -218,19 +235,9 @@ function Header({ children }) {
                                                 Register
                                             </Link>
                                         </div>
-                                        {/* <div className={cx('account-option')}>
-                                            <FontAwesomeIcon icon={faUser} />
-                                            <Link
-                                                to={routesConfig.test}
-                                                className={cx('name-option')}
-                                            >
-                                                Account
-                                            </Link>
-                                        </div> */}
+
                                         <div className={cx('account-option')}>
-                                            <FontAwesomeIcon
-                                                icon={faCircleQuestion}
-                                            />
+                                            <FontAwesomeIcon icon={faUser} />
                                             <Link
                                                 to={routesConfig.infoAccount}
                                                 className={cx('name-option')}
@@ -239,34 +246,25 @@ function Header({ children }) {
                                             </Link>
                                         </div>
                                     </div>
-                                    {/* <div className={cx('sign-out')}>
+                                    <div className={cx('sign-out')}>
                                         <Link
-                                            to={routesConfig.yourAccount}
                                             className={cx('name-option')}
+                                            onClick={logOut}
                                         >
                                             Sign out of Netflix
                                         </Link>
-                                    </div> */}
+                                    </div>
                                     <div className={cx('dropdown-arrow')}></div>
                                 </div>
                             )}
                         >
                             <div className={cx('user')}>
                                 <Image
-                                    // src={
-                                    //     process.env.PUBLIC_URL + logoUserPath ||
-                                    //     process.env.PUBLIC_URL +
-                                    //         'uploads/user-default-img.png'
-                                    // }
                                     src={
                                         account.image === undefined
                                             ? 'https://netflix-backend-3swq.onrender.com/images/user-default-img.png'
                                             : `https://netflix-backend-3swq.onrender.com/${account.image}`
                                     }
-                                    // src={
-                                    //     `https://netflix-backend-3swq.onrender.com/${logoUserPath}` ||
-                                    //     `https://netflix-backend-3swq.onrender.com/images/user-default-img.png`
-                                    // }
                                     alt="Logo user"
                                     className={cx('logo-user')}
                                 />
