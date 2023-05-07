@@ -84,7 +84,6 @@ function Header({ children }) {
             .catch((error) => console.error(error));
     };
     const fetchAPI = () => {
-        console.log(`${process.env.REACT_APP_API_URL}`);
         fetch('https://shin-backend.onrender.com/YourAccount/data', {
             // fetch('http://localhost:3001/YourAccount/data', {
             method: 'GET',
@@ -98,9 +97,22 @@ function Header({ children }) {
             .catch((error) => console.error(error));
     };
 
+    const testFetch = () => {
+        fetch('https://shin-backend.onrender.com/YourAccount/data')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                console.log(JSON.stringify(myJson));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
     useEffect(() => {
         fetchAPI();
-        console.log(avatar);
+        testFetch();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
