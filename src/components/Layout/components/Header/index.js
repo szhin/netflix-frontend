@@ -6,7 +6,7 @@ import TippyNotification from './TippyNotification';
 
 import routesConfig from '../../../../config/routes';
 import Image from '../Image';
-import logo from '../../../../assets/images/logo-website.png';
+import logo from '../../../../assets/images/logo-shin.png';
 import { TitleNavbar } from './TitleNavbar';
 
 import {
@@ -67,25 +67,7 @@ function Header({ children }) {
     };
 
     /////////////////////// BACK END //////////////////////
-    const [account, setAccount] = useState({
-        image: 'images/user-default-img.png',
-    });
-
-    const fetchAPI = () => {
-        fetch('https://shin-backend.onrender.com/YourAccount/data', {
-            // fetch('http://localhost:3001/YourAccount/data', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                setAccount(data);
-            })
-            .catch((error) => console.error(error));
-    };
+    const [avatar, setAvatar] = useState('images/user-default-img.png');
     const logOut = () => {
         fetch('https://shin-backend.onrender.com/YourAccount/logout', {
             // fetch('http://localhost:3001/YourAccount/logout', {
@@ -96,17 +78,30 @@ function Header({ children }) {
             credentials: 'include',
         })
             .then(() => {
-                setAccount({
-                    image: 'images/user-default-img.png',
-                });
+                setAvatar('images/user-default-img.png');
             })
+            .catch((error) => console.error(error));
+    };
+    const fetchAPI = () => {
+        fetch('https://shin-backend.onrender.com/YourAccount/data', {
+            // fetch('http://localhost:3001/YourAccount/data', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        })
+            .then((response) => response.json())
+            .then((data) => setAvatar(data.image))
             .catch((error) => console.error(error));
     };
 
     useEffect(() => {
         fetchAPI();
-        console.log(account.image);
-    }, [account.image]);
+        console.log(avatar);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <header className={cx(color ? classScroll : classHeader)}>
             <div className={cx('inner')}>
@@ -262,10 +257,15 @@ function Header({ children }) {
                         >
                             <div className={cx('user')}>
                                 <Image
+                                    // src={
+                                    //     avatar === undefined
+                                    //         ? 'https://shin-backend.onrender.com/images/user-default-img.png'
+                                    //         : `https://shin-backend.onrender.com/${avatar}`
+                                    // }
                                     src={
-                                        account.image === undefined
+                                        avatar === undefined
                                             ? 'https://shin-backend.onrender.com/images/user-default-img.png'
-                                            : `https://shin-backend.onrender.com/${account.image}`
+                                            : `https://shin-backend.onrender.com/${avatar}`
                                     }
                                     alt="Logo user"
                                     className={cx('logo-user')}
