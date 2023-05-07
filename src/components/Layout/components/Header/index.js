@@ -67,6 +67,7 @@ function Header({ children }) {
     };
 
     /////////////////////// BACK END //////////////////////
+
     const [avatar, setAvatar] = useState('images/user-default-img.png');
     const logOut = () => {
         fetch('https://shin-backend.onrender.com/YourAccount/logout', {
@@ -83,6 +84,7 @@ function Header({ children }) {
             .catch((error) => console.error(error));
     };
     const fetchAPI = () => {
+        console.log(`${process.env.REACT_APP_API_URL}`);
         fetch('https://shin-backend.onrender.com/YourAccount/data', {
             // fetch('http://localhost:3001/YourAccount/data', {
             method: 'GET',
@@ -99,7 +101,7 @@ function Header({ children }) {
     useEffect(() => {
         fetchAPI();
         console.log(avatar);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
