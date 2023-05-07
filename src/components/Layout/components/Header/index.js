@@ -83,36 +83,49 @@ function Header({ children }) {
             })
             .catch((error) => console.error(error));
     };
-    const fetchAPI = () => {
-        fetch('https://shin-backend.onrender.com/YourAccount/data', {
-            // fetch('http://localhost:3001/YourAccount/data', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-        })
-            .then((response) => response.json())
-            .then((data) => setAvatar(data.image))
-            .catch((error) => console.error(error));
-    };
+    // const fetchAPI = () => {
+    //     fetch('https://shin-backend.onrender.com/YourAccount/data', {
+    //         // fetch('http://localhost:3001/YourAccount/data', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         credentials: 'include',
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => setAvatar(data.image))
+    //         .catch((error) => console.error(error));
+    // };
 
-    const testFetch = () => {
-        fetch('https://shin-backend.onrender.com/YourAccount/data')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (myJson) {
-                console.log(JSON.stringify(myJson));
-            })
-            .catch(function (error) {
-                console.log(error);
+    const fetchAPI = async () => {
+        const domain =
+            window.location.hostname === 'shin-frontend.vercel.app'
+                ? 'https://shin-backend.onrender.com'
+                : '';
+
+        try {
+            const response = await fetch(`${domain}/YourAccount/data`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
             });
+
+            if (response.ok) {
+                const data = await response.json();
+                setAvatar(data.image);
+            } else {
+                console.error('Error fetching data');
+            }
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     useEffect(() => {
         fetchAPI();
-        testFetch();
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
