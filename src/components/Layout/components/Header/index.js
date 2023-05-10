@@ -70,7 +70,7 @@ function Header({ children }) {
     };
 
     /////////////////////// BACK END //////////////////////
-    const [avatar, setAvatar] = useState('/images/user-default-img.png');
+    const [avatar, setAvatar] = useState('images/user-default-img.png');
 
     useEffect(() => {
         const fetchUserInfo = async () => {
