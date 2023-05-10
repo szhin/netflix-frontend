@@ -78,11 +78,11 @@ function Header({ children }) {
                 const response = await fetch(
                     'https://szhinbe.vercel.app/info',
                     {
-                        method: 'GET',
                         credentials: 'include',
                     },
                 );
                 const data = await response.json();
+                console.log(data.user.userImage);
                 setAvatar(data.user.userImage);
             } catch (error) {
                 console.log('Error:', error);
