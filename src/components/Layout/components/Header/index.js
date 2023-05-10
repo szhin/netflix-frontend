@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
 import TippyNotification from './TippyNotification';
 
-import axios from 'axios';
-import Cookies from 'universal-cookie';
-
 import routesConfig from '../../../../config/routes';
 import Image from '../Image';
 import logo from '../../../../assets/images/logo-shin.png';
@@ -73,32 +70,26 @@ function Header({ children }) {
     };
 
     /////////////////////// BACK END //////////////////////
-    // useEffect automatically executes once the page is fully loaded
-    // const cookies = new Cookies();
-    // const [message, setMessage] = useState('');
-    // const token = cookies.get('TOKEN');
-    // console.log(token);
+    const [avatar, setAvatar] = useState('/uploads/user-default-img.png');
 
-    // useEffect(() => {
-    //     // set configurations for the API call here
-    //     const configuration = {
-    //         method: 'get',
-    //         url: 'http://localhost:8080/auth-endpoint',
-    //         headers: {
-    //             Authorization: `Bearer ${token}`,
-    //         },
-    //     };
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+            try {
+                const response = await fetch(
+                    'https://szhinbe.vercel.app/info',
+                    {
+                        credentials: 'include',
+                    },
+                );
+                const data = await response.json();
+                setAvatar(data.user.userImage);
+            } catch (error) {
+                console.log('Error:', error);
+            }
+        };
 
-    //     // make the API call
-    //     axios(configuration)
-    //         .then((result) => {
-    //             // assign the message in our result to the message we initialized above
-    //             setMessage(result.data.message);
-    //         })
-    //         .catch((error) => {
-    //             error = new Error();
-    //         });
-    // }, []);
+        fetchUserInfo();
+    }, []);
     return (
         <header className={cx(color ? classScroll : classHeader)}>
             <div className={cx('inner')}>
@@ -257,9 +248,11 @@ function Header({ children }) {
                                     // src={
                                     //     avatar === undefined
                                     //         ? 'https://shin-backend.vercel.app/images/user-default-img.png'
-                                    //         : `https://shin-backend.vercel.app/${avatar}`
-                                    // }
-                                    src="https://szhinbe.vercel.app/images/user-default-img.png"
+                                    src={
+                                        avatar
+                                            ? `https://szhinbe.vercel.app/${avatar}`
+                                            : 'https://szhinbe.vercel.app/uploads/user-default-img.png'
+                                    }
                                     alt="Logo user"
                                     className={cx('logo-user')}
                                 />
