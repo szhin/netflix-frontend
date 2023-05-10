@@ -70,7 +70,7 @@ function Header({ children }) {
     };
 
     /////////////////////// BACK END //////////////////////
-    const [avatar, setAvatar] = useState('/uploads/user-default-img.png');
+    const [avatar, setAvatar] = useState('/images/user-default-img.png');
 
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -251,7 +251,7 @@ function Header({ children }) {
                                     src={
                                         avatar
                                             ? `https://szhinbe.vercel.app/${avatar}`
-                                            : 'https://szhinbe.vercel.app/uploads/user-default-img.png'
+                                            : 'https://szhinbe.vercel.app/images/user-default-img.png'
                                     }
                                     alt="Logo user"
                                     className={cx('logo-user')}
