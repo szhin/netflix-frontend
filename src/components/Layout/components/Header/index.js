@@ -78,6 +78,7 @@ function Header({ children }) {
                 const response = await fetch(
                     'https://szhinbe.vercel.app/info',
                     {
+                        method: 'GET',
                         credentials: 'include',
                     },
                 );
