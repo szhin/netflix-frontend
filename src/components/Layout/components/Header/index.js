@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
 import TippyNotification from './TippyNotification';
 
+import axios from 'axios';
+import Cookies from 'universal-cookie';
+
 import routesConfig from '../../../../config/routes';
 import Image from '../Image';
 import logo from '../../../../assets/images/logo-shin.png';
@@ -21,6 +24,9 @@ import { faBell } from '@fortawesome/free-regular-svg-icons';
 
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
+
+// import queryString from 'query-string';
+
 const cx = classNames.bind(styles);
 
 function Header({ children }) {
@@ -67,68 +73,32 @@ function Header({ children }) {
     };
 
     /////////////////////// BACK END //////////////////////
+    // useEffect automatically executes once the page is fully loaded
+    // const cookies = new Cookies();
+    // const [message, setMessage] = useState('');
+    // const token = cookies.get('TOKEN');
+    // console.log(token);
 
-    const [avatar, setAvatar] = useState('images/user-default-img.png');
-    const logOut = () => {
-        fetch('https://shin-backend.onrender.com/YourAccount/logout', {
-            // fetch('http://localhost:3001/YourAccount/logout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-        })
-            .then(() => {
-                setAvatar('images/user-default-img.png');
-            })
-            .catch((error) => console.error(error));
-    };
-    // const fetchAPI = () => {
-    //     fetch('https://shin-backend.onrender.com/YourAccount/data', {
-    //         // fetch('http://localhost:3001/YourAccount/data', {
-    //         method: 'GET',
+    // useEffect(() => {
+    //     // set configurations for the API call here
+    //     const configuration = {
+    //         method: 'get',
+    //         url: 'http://localhost:8080/auth-endpoint',
     //         headers: {
-    //             'Content-Type': 'application/json',
+    //             Authorization: `Bearer ${token}`,
     //         },
-    //         credentials: 'include',
-    //     })
-    //         .then((response) => response.json())
-    //         .then((data) => setAvatar(data.image))
-    //         .catch((error) => console.error(error));
-    // };
+    //     };
 
-    const fetchAPI = async () => {
-        const domain =
-            window.location.hostname === 'shin-frontend.vercel.app'
-                ? 'https://shin-backend.onrender.com'
-                : '';
-
-        try {
-            const response = await fetch(`${domain}/YourAccount/data`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                credentials: 'include',
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                setAvatar(data.image);
-            } else {
-                console.error('Error fetching data');
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    useEffect(() => {
-        fetchAPI();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
+    //     // make the API call
+    //     axios(configuration)
+    //         .then((result) => {
+    //             // assign the message in our result to the message we initialized above
+    //             setMessage(result.data.message);
+    //         })
+    //         .catch((error) => {
+    //             error = new Error();
+    //         });
+    // }, []);
     return (
         <header className={cx(color ? classScroll : classHeader)}>
             <div className={cx('inner')}>
@@ -273,7 +243,7 @@ function Header({ children }) {
                                     <div className={cx('sign-out')}>
                                         <Link
                                             className={cx('name-option')}
-                                            onClick={logOut}
+                                            // onClick={logOut}
                                         >
                                             Sign out of Netflix
                                         </Link>
@@ -286,14 +256,10 @@ function Header({ children }) {
                                 <Image
                                     // src={
                                     //     avatar === undefined
-                                    //         ? 'https://shin-backend.onrender.com/images/user-default-img.png'
-                                    //         : `https://shin-backend.onrender.com/${avatar}`
+                                    //         ? 'https://shin-backend.vercel.app/images/user-default-img.png'
+                                    //         : `https://shin-backend.vercel.app/${avatar}`
                                     // }
-                                    src={
-                                        avatar === undefined
-                                            ? 'https://shin-backend.onrender.com/images/user-default-img.png'
-                                            : `https://shin-backend.onrender.com/${avatar}`
-                                    }
+                                    src="https://szhinbe.vercel.app/images/user-default-img.png"
                                     alt="Logo user"
                                     className={cx('logo-user')}
                                 />

@@ -20,6 +20,7 @@
     "framer-motion": "^10.3.0",
     "node-sass": "^7.0.3",
     "normalize.css": "^8.0.1",
+    "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
@@ -29,6 +30,7 @@
     "react-tippy": "^1.4.0",
     "react-transition-group": "^4.4.5",
     "tippy.js": "^6.3.7",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
