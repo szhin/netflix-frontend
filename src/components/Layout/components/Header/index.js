@@ -72,25 +72,25 @@ function Header({ children }) {
     /////////////////////// BACK END //////////////////////
     const [avatar, setAvatar] = useState('images/user-default-img.png');
 
-    useEffect(() => {
-        const fetchUserInfo = async () => {
-            try {
-                const response = await fetch(
-                    'https://szhinbe.vercel.app/info',
-                    {
-                        credentials: 'include',
-                    },
-                );
-                const data = await response.json();
-                console.log(data.user.userImage);
-                setAvatar(data.user.userImage);
-            } catch (error) {
-                console.log('Error:', error);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchUserInfo = async () => {
+    //         try {
+    //             const response = await fetch(
+    //                 'https://szhinbe.vercel.app/info',
+    //                 {
+    //                     credentials: 'include',
+    //                 },
+    //             );
+    //             const data = await response.json();
+    //             console.log(data.user.userImage);
+    //             setAvatar(data.user.userImage);
+    //         } catch (error) {
+    //             console.log('Error:', error);
+    //         }
+    //     };
 
-        fetchUserInfo();
-    }, []);
+    //     fetchUserInfo();
+    // }, []);
     return (
         <header className={cx(color ? classScroll : classHeader)}>
             <div className={cx('inner')}>
