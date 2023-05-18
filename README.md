@@ -1,10 +1,21 @@
+# Netflix Website Frontend 
+
+Link: https://github.com/szhin/netflix-frontend
+
+## Frontend - React
+
+Read more react here: https://github.com/facebook/create-react-app
+
+I created frontend in client folder
+
+```
+$ npm install -g create-react-app
+$ npx create-react-app my-app
+$ cd my-app
+$ npm start
+```
+
 # Netflix Website Backend:
-
-## Table of Contents
-
-- [React](#frontend---react)
-- [Nodejs express](#backend---nodejs---express)
-- [MongoDB database](#mongodb---database)
 
 ## Backend - Nodejs - Express
 
@@ -91,22 +102,5 @@ I create express nodejs according to the MVC scheme and use some libraries expre
 ## MongoDB - Database
 
 Read more mongodb here: https://www.mongodb.com/docs/
-
-# Netflix Website Frontend here
-
-Link: https://github.com/szhin/netflix-frontend
-
-## Frontend - React
-
-Read more react here: https://github.com/facebook/create-react-app
-
-I created frontend in client folder
-
-```
-$ npm install -g create-react-app
-$ npx create-react-app my-app
-$ cd my-app
-$ npm start
-```
 
 # I hope you enjoy, have a good day 🥹😙😋
